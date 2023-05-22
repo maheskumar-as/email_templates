@@ -1,0 +1,63 @@
+
+<style>
+    .container
+    {
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .email_form
+    {
+       max-width: 450px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    flex: 1;
+    border-radius: 10px;
+    }
+    .preview
+    {
+       border: 2px solid #d3d3d3;
+    margin-left: 20px;
+    flex: 1;
+    border-radius: 5px;
+    padding: 10px;
+
+    }
+    input
+    {
+        height: 35px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    width: 250px;
+    }
+    button
+    {
+        height: 35px;
+        cursor: pointer;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+<div class="container">
+    <div class="email_form">
+        <input id="template_path" />
+        <button id="send-mail">Send Mail</button>
+    </div>
+    <div class="preview">
+        preview
+    </div>
+</div>
+<script>
+    $('#send-mail').click(function(){
+         $.ajax({
+            type: 'get',
+            url: '/sendemail/sample',
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                alert(result.status)
+            }
+        });
+    })
+</script>
