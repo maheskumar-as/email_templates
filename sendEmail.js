@@ -2,9 +2,7 @@ import sgMail from "@sendgrid/mail";
 import handlebars from "handlebars";
 import fs from "fs";
 
-sgMail.setApiKey(
-  "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"
-);
+sgMail.setApiKey("api_key");
 
 const sendMail = async (to, from, subject, text, html) => {
   const msg = { to, from, subject, text, html };
